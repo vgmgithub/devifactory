@@ -1,11 +1,15 @@
-import Home from "./components/Home";
+// src/App.js
+import React from 'react';
+ 
+import './styles/main.css';
+import Scrollspy from './components/ScrollSpy';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Home/>
+    <div>
+      <Scrollspy/>
     </div>
   );
-}
+};
 
 export default App;

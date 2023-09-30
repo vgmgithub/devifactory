@@ -1,0 +1,179 @@
+body{
+    background-color: #e7fcff;
+}
+
+.title{
+    color:#fff !important;
+    text-shadow: 1px 2px 6px #000000b5;
+}
+.titleicon{
+    color:#fff !important;
+    text-shadow: 1px 1px 2px #000000d4 !important;
+    font-size: 25px !important;
+}
+
+.title-highlight, .title-highlight-icon{
+    background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none !important;
+    font-weight: 600;
+}
+.title-highlight-icon{
+    font-size: 20px !important;
+}
+
+
+#navbar-example{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.nav-link:focus, .nav-link:hover{
+    background: linear-gradient(45deg, #5851DB, #833AB4, #C13584, #E1306C) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    font-weight: 600;
+}
+.nav-link{
+    font-weight: 600 !important;
+}
+
+.logo{
+    font-size: 80px;
+    position: relative;
+    top: 15px;
+    margin-left: 5px;
+    z-index: -1;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tag{
+    color: #9b9a9a;
+    top: -15px;
+    position: relative;
+    z-index: -1;
+    right: 147px;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Make the body take up the full viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Style the centered text */
+.center-text {
+    text-align: center;
+}
+
+.center-text p {
+    font-size: 15px; /* Adjust font size as needed */
+    font-weight: bold; /* Optionally, add font weight or other styles */
+}
+
+.navbar-example{
+    position: fixed;
+    width: 100%;
+}
+
+.contentsection{
+    text-align: justify;
+    padding: 100px 50px;
+}
+#navbarNav{
+    right: 50px;
+    position: absolute;
+}
+.instaqr{
+    width: 100%;
+}
+.scandiv{
+    width:250px;
+}
+.scantext{
+    /* color:pink; */
+    font-weight: 800;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Hide the original text color */
+    text-align: center;
+}
+.service {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.service h5 {
+    background-image: linear-gradient(45deg, #5851DB, #833AB4, #C13584, #E1306C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+}
+
+.service p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.contact-form{
+    width:50%;
+}
+.portfolio img{
+    height: 400px;
+}
+.portfolio{
+    margin: 10px 15px;
+    box-shadow: 1px 1px 10px #0000006b;
+    z-index: -1;
+}
+
+.deviborder:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #FFA07A, #FF6347); /* Gradient colors */
+    transform: translateY(-50%); 
+   
+
+}
+
+.deviborder{
+position: relative; /* Position relative to create a reference for the pseudo-element */
+font-size: 30px; /* Adjust the font size as needed */
+margin-left: 10px;
+z-index: -1;
+}
+
+.ownerprof{
+    width: 30%;
+}
+.ownerlabel{
+    font-size: -webkit-xxx-large;
+    margin-top: 35px;
+}
+.social-icons svg{
+    
+    padding: 0px 10px;
+
+}
+.social-icons{
+    position: absolute;
+    right: 100px;
+}
