@@ -177,3 +177,26 @@ z-index: -1;
     position: absolute;
     right: 100px;
 }
+.easel{
+    width: 400px;
+    position: absolute;
+    top: 3430px;
+    right: 0px;
+}
+.incline-text {
+    position: absolute;
+    top: 3580px;
+    right: 85px;
+    line-height: 1.2;
+    color: #c9337e;
+    width: 80px;
+    font-weight: 700;
+    text-align: center;
+  }
+.customercount{
+    font-size: 30px;
+    background-image: linear-gradient(45deg, #5851DB, #833AB4, #C13584, #E1306C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

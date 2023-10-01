@@ -75,7 +75,7 @@ const Scrollspy = () => {
                 <Portfolio projects={filteredProjects} />
             </div>
             <hr/>
-            <div id="services" className='contentsection'>
+            <div id="services" className='contentsection'  >
                 
                     <Services/>
               </div>
