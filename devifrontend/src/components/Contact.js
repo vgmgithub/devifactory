@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Footer from './Footer';
 
-
+import Swal from 'sweetalert2'
 
 
 
@@ -12,13 +12,14 @@ const Contact = () => {
 
     const interest = ['Potrait', 'Illustration', 'Painting', 'Digital Potrait'];
     interest.sort();
-    
-    const [formData, setFormData] = useState({
+    const intialstate ={
         name: '',
         email: '',
+        mobile: '',
         interest: '',
         message: '',
-    });
+    }
+    const [formData, setFormData] = useState(intialstate);
     
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -33,13 +34,36 @@ const Contact = () => {
       e.preventDefault();
        // Perform form validation here
     if (formData.interest === '') {
-        alert('Please select a interest.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'you missed to choose your interest!',
+             
+          })
         return;
       }
     // Handle form submission, e.g., send data to server or display a success message
       console.log('Form data:', formData);
       localStorage.setItem('user', formData.name);
-      window.location.reload();
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Your Enquiry has been noted. Will get back to you!',
+        showConfirmButton: false,
+        timer: 2500
+        
+      }).then(() => {
+        setTimeout(() => {
+            // Scroll to the top of the page
+            window.scrollTo({ top: -200, behavior: 'smooth' });
+            
+            // Reload the page after a short delay (e.g., 500 milliseconds)
+            setTimeout(() => {
+              window.location.reload();
+            }, 500);
+          }, 1000);
+       
+      });
   };
 
     return (
