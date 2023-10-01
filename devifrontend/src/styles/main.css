@@ -154,7 +154,24 @@ body{
     box-shadow: 1px 1px 10px #0000006b;
     z-index: -1;
 }
+.contactbtn{
+    /* border:1px solid !important; */
+    background-color: #f55d3f !important;
 
+
+    padding: 10px 20px;
+    /* background: linear-gradient(to right, #3498db, #2980b9); Initial gradient background */
+    color: #fff; /* Text color */
+    border: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.10s ease, transform 0.10s ease; 
+}
+.contactbtn:hover{
+    transform: scale(1.1); /* Scale the button by 110% on hover */
+    /* background-color: #e12415 !important; */
+    background: linear-gradient(to right, #FD1D1D, #F56040, #FF8E53);
+}
 .deviborder:before{
     content: '';
     position: absolute;

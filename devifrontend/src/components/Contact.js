@@ -75,7 +75,7 @@ const Contact = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">
-                                Name
+                                How your friends call you ?
                             </label>
                             <input
                             type="text"
@@ -89,7 +89,7 @@ const Contact = () => {
                             />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="mobile" className="form-label">Mobile Number:</label>
+                                <label htmlFor="mobile" className="form-label">Tell me your WhatsApp ?</label>
                                 <input
                                     type="tel"
                                     id="mobile"
@@ -104,7 +104,7 @@ const Contact = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">
-                                    Email
+                                    How to contact you officially ? (via email)
                                 </label>
                                 <input
                                 type="email"
@@ -132,7 +132,7 @@ const Contact = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="message" className="form-label">
-                                    Message
+                                    Just type your query below
                                 </label>
                                 <textarea
                                 className="form-control"
@@ -143,7 +143,7 @@ const Contact = () => {
                                 required
                                 ></textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit"  className="btn btn-primary contactbtn">
                                 Submit
                             </button>
                     </form>

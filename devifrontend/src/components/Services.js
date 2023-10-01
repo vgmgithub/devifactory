@@ -3,7 +3,8 @@ import React from 'react'
 const Services = () => {
   return (
       <>
-          <h2 className='deviborder'>Services</h2><br /><br /><br />
+          <h2 className='deviborder'>I Can Do</h2><br /><br /><br />
+          {/* <h2 className='deviborder'>Services</h2><br /><br /><br /> */}
           
         <div className='row'>
             <div className='col-md-10'>
