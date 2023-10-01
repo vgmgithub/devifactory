@@ -2,7 +2,7 @@
 const portfolioData = [
     {
         id: 1,
-        title: 'Rajinikanth',
+        title: 'SuperStar - Rajinikanth',
         category: 'Potrait',
         imageSrc: '/images/gallery/potrait.jpg',
     },
@@ -82,7 +82,7 @@ const portfolioData = [
       },
       {
         id: 14,
-        title: "Taj @ 70's",
+        title: "Retro - Taj",
         category: 'Painting',
         imageSrc: '/images/gallery/gouchepainting3.jpg',
       },

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Portfolio = ({ projects }) => {
   return (
-    <div className="row">
+    <div className="row screenprofile">
       {projects.map((project) => (
         <div className="col-md-4" key={project.id}>
           <div className="card portfolio">

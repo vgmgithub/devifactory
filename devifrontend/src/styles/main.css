@@ -30,7 +30,7 @@ body{
     width: 100%;
     z-index: 1;
 }
-.nav-link:focus, .nav-link:hover{
+.nav-link:focus, .nav-link:hover, .active{
     background: linear-gradient(45deg, #5851DB, #833AB4, #C13584, #E1306C) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
@@ -38,15 +38,15 @@ body{
     text-shadow: none !important;
     font-weight: 600;
 }
+ 
 .nav-link{
     font-weight: 600 !important;
 }
 
 .logo{
-    font-size: 80px;
+    font-size: 90px;
     position: relative;
     top: 15px;
-    margin-left: 5px;
     z-index: -1;
     background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);
     -webkit-background-clip: text;
@@ -61,6 +61,13 @@ body{
     z-index: -1;
     right: 147px;
 }
+/* .tag{
+    color: #9b9a9a;
+    top: -10px;
+    position: relative;
+    z-index: -1;
+    right: 80px;
+} */
 
 .body {
     margin: 0;
@@ -117,9 +124,15 @@ body{
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
+/* .catlink {
+    background-image: linear-gradient(45deg, #ee1313, #b73f27, #ff6426, #FF6347) !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    background-color: #fff !important;
+  } */
 .service h5 {
-    background-image: linear-gradient(45deg, #5851DB, #833AB4, #C13584, #E1306C);
+    background-image: linear-gradient(45deg, #ee1313, #b73f27, #ff6426, #FF6347);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -180,23 +193,76 @@ z-index: -1;
 .easel{
     width: 400px;
     position: absolute;
-    top: 3430px;
+    top: 3000px;
     right: 0px;
 }
 .incline-text {
     position: absolute;
-    top: 3580px;
-    right: 85px;
+    top: 3150px;
+    right: 78px;
     line-height: 1.2;
-    color: #c9337e;
-    width: 80px;
+    background-image: linear-gradient(to bottom, #FFA07A, #FF6347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: 90px;
     font-weight: 700;
     text-align: center;
   }
 .customercount{
     font-size: 30px;
-    background-image: linear-gradient(45deg, #5851DB, #833AB4, #C13584, #E1306C);
+    background-image: linear-gradient(45deg, #ee1313, #b73f27, #ff6426, #FF6347);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
+
+.screenprofile{
+    height: 600px;
+    overflow: auto;
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+  
+  /* Scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
+  }
+  
+  /* Hovered state of the scrollbar thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+  }
+  
+  /* Scrollbar track when dragging the thumb */
+  ::-webkit-scrollbar-thumb:active {
+    background: #333; /* Color when active (clicked and dragging) */
+  }
+  
+  /* Scrollbar track when the mouse is over it */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track (background) */
+  }
+ 
+  
+  .contacttag{
+    position: relative;
+    bottom: 23px;
+    font-size: 12px;
+    left: 12px;
+  }
+
+  .userlogo{
+    font-size: 70px;
+    top: 0px;
+    position: relative;
+    z-index: -1;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }

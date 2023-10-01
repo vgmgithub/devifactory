@@ -4,12 +4,12 @@ import React from 'react';
 const CategoryTabs = ({ categories, activeCategory, onCategoryChange }) => {
   return (
     <>
-      <h2  className='deviborder'>My Works</h2><br />
+      <h2  className='deviborder'>My Works</h2><br /><br /><br />
       <ul className="nav nav-tabs">
       {categories.map((category) => (
         <li className="nav-item" key={category}>
           <button
-            className={`nav-link ${category === activeCategory ? 'active' : ''}`}
+            className={`nav-link catlink ${category === activeCategory ? 'active' : ''}`}
             onClick={() => onCategoryChange(category)}
           >
             {category}

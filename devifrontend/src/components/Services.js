@@ -41,7 +41,7 @@ const Services = () => {
               <div className='col-md-2'>
                   
                   <img src='images/easel-png.png' className='easel' alt='easel' />
-                  <span class="incline-text"><span className="customercount"  >25</span>&nbsp;Happy Customer's</span>
+                  <span className="incline-text"><span className="customercount"  >25</span>&nbsp;Happy Customer's</span>
             </div>
                  
         </div>
