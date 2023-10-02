@@ -20,15 +20,16 @@ const portfolioData = [
     },
     {
         id: 4,
-        title: 'Thalapathy - Vijay',
+        title: 'Thala - Dhoni',
         category: 'Digital Potrait',
-        imageSrc: '/images/gallery/digitalpotrait.jpg',
+        imageSrc: '/images/gallery/digitalpotrait0.jpg',
     },
     {
         id: 5,
-        title: 'Singer Sivangi',
+        title: 'Thalapathy - Vijay',
         category: 'Digital Potrait',
-        imageSrc: '/images/gallery/digitalpotrait2.jpg',
+        imageSrc: '/images/gallery/digitalpotrait.jpg',
+        
     },
       
     {
@@ -55,83 +56,113 @@ const portfolioData = [
         category: 'Illustration',
         imageSrc: '/images/gallery/illustration3.jpg',
     },
-    // {
-    //     id: 10,
-    //     title: 'Project 2',
-    //     category: 'Illustration',
-    //     imageSrc: '/images/gallery/illustration4.jpg',
-    // },
-
+    {
+        id: 10,
+        title: 'Singer Sivangi',
+        category: 'Digital Potrait',
+        imageSrc: '/images/gallery/digitalpotrait2.jpg',
+        
+    },
     {
         id: 11,
+        title: 'Girl Behind Struggles',
+        category: 'Painting',
+        imageSrc: '/images/gallery/gouchepainting0.jpg',
+    },
+    {
+        id: 12,
+        title: 'Bliss of Shedding Forest',
+        category: 'Painting',
+        imageSrc: '/images/gallery/gouchepaintingg.jpg',
+    },
+    {
+        id: 13,
+        title: 'Romance in Middle of Somewhere',
+        category: 'Painting',
+        imageSrc: '/images/gallery/gouchepainting00.jpg',
+    },
+    {
+        id: 14,
         title: 'Path to Heaven',
         category: 'Painting',
         imageSrc: '/images/gallery/gouchepainting.jpg',
     },
     {
-        id: 12,
+        id: 15,
         title: 'Waterfall is a Bliss',
         category: 'Painting',
         imageSrc: '/images/gallery/gouchepainting1.jpg',
     },
     {
-        id: 13,
+        id: 16,
         title: 'Dawn in sea',
         category: 'Painting',
         imageSrc: '/images/gallery/gouchepainting2.jpg',
-      },
-      {
-        id: 14,
-        title: "Retro - Taj",
-        category: 'Painting',
-        imageSrc: '/images/gallery/gouchepainting3.jpg',
-      },
-      {
-        id: 15,
-        title: 'Chanel of lake',
-        category: 'Painting',
-        imageSrc: '/images/gallery/gouchepainting4.jpg',
-    },
-    {
-        id: 16,
-        title: 'Bon Voyage',
-        category: 'Painting',
-        imageSrc: '/images/gallery/gouchepainting5.jpg',
     },
     {
         id: 17,
+        title: "Retro - Taj",
+        category: 'Painting',
+        imageSrc: '/images/gallery/gouchepainting3.jpg',
+    },
+    {
+        id: 18,
         title: 'Potrait #1',
         category: 'Digital Potrait',
         imageSrc: '/images/gallery/digitalpotrait3.jpg',
     },
     {
-        id: 18,
+        id: 19,
+        title: 'Happy Man',
+        category: 'Potrait',
+        imageSrc: '/images/gallery/potrait3.jpg',
+    },
+    {
+        id: 20,
+        title: 'Joker',
+        category: 'Potrait',
+        imageSrc: '/images/gallery/potrait4.jpg',
+    },
+    {
+        id: 21,
         title: 'Tony Stark',
         category: 'Potrait',
         imageSrc: '/images/gallery/potrait6.jpg',
     },
     {
-        id: 19,
+        id: 22,
         title: 'Potrait #2',
         category: 'Digital Potrait',
         imageSrc: '/images/gallery/digitalpotrait4.jpg',
     },
     {
-        id: 20,
+        id: 23,
         title: 'Potrait #1',
         category: 'Potrait',
         imageSrc: '/images/gallery/potrait7.jpg',
     },
     
     {
-        id: 21,
+        id: 24,
+        title: 'Chanel of lake',
+        category: 'Painting',
+        imageSrc: '/images/gallery/gouchepainting4.jpg',
+    },
+    {
+        id: 25,
+        title: 'Bon Voyage',
+        category: 'Painting',
+        imageSrc: '/images/gallery/gouchepainting5.jpg',
+    },
+    {
+        id: 26,
         title: 'Potrait #3',
         category: 'Digital Potrait',
         imageSrc: '/images/gallery/digitalpotrait5.jpg',
     },
-
     // Add more projects with different categories
   ];
   
   export default portfolioData;
   
+

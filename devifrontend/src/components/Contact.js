@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Footer from './Footer';
 
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 
 
@@ -44,26 +44,50 @@ const Contact = () => {
       }
     // Handle form submission, e.g., send data to server or display a success message
       console.log('Form data:', formData);
-      localStorage.setItem('user', formData.name);
-      Swal.fire({
-        position: 'top-center',
-        icon: 'success',
-        title: 'Your Enquiry has been noted. Will get back to you!',
-        showConfirmButton: false,
-        timer: 2500
-        
-      }).then(() => {
-        setTimeout(() => {
-            // Scroll to the top of the page
-            window.scrollTo({ top: -200, behavior: 'smooth' });
+
+
+
+
+      fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the API response here (success or error)
+          
+          localStorage.setItem('user', formData.name);
+          Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Your Enquiry has been noted. Will get back to you!',
+            showConfirmButton: false,
+            timer: 2500
             
-            // Reload the page after a short delay (e.g., 500 milliseconds)
+          }).then(() => {
             setTimeout(() => {
-              window.location.reload();
-            }, 500);
-          }, 1000);
-       
-      });
+                // Scroll to the top of the page
+                window.scrollTo({ top: -200, behavior: 'smooth' });
+                
+                // Reload the page after a short delay (e.g., 500 milliseconds)
+                setTimeout(() => {
+                  window.location.reload();
+                }, 500);
+              }, 1000);
+           
+          });
+            
+        })
+        .catch((error) => {
+          // Handle errors here
+          console.error(error);
+        });
+      
+      
+      
   };
 
     return (

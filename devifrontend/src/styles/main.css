@@ -6,13 +6,27 @@ body{
     color:#fff !important;
     text-shadow: 1px 2px 6px #000000b5;
 }
+.admintitle{
+    top: 200px;
+    color: #fff !important;
+    text-shadow: 1px 2px 6px #000000b5;
+    position: absolute;
+    /* margin-left: -50px; */
+}
+
 .titleicon{
-    color:#fff !important;
+    color: #fff !important;
+    position: relative;
+    right: 20px;
     text-shadow: 1px 1px 2px #000000d4 !important;
     font-size: 25px !important;
 }
-
-.title-highlight, .title-highlight-icon{
+.loginicon{
+    color: #fff !important; 
+    text-shadow: 1px 1px 2px #000000d4 !important;
+    font-size: 40px !important;
+}
+.title-highlight, .title-highlight-icon, .title-highlight-loginicon{
     background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);
     -webkit-background-clip: text;
     background-clip: text;
@@ -25,6 +39,9 @@ body{
 }
 
 
+.title-highlight-loginicon{
+    font-size: 30px !important;
+}
 #navbar-example{
     position: fixed;
     width: 100%;
@@ -61,13 +78,13 @@ body{
     z-index: -1;
     right: 147px;
 }
-/* .tag{
+.admintag{
     color: #9b9a9a;
-    top: -10px;
+    bottom: 35px;
     position: relative;
     z-index: -1;
-    right: 80px;
-} */
+
+}
 
 .body {
     margin: 0;
@@ -154,7 +171,7 @@ body{
     box-shadow: 1px 1px 10px #0000006b;
     z-index: -1;
 }
-.contactbtn{
+.contactbtn, .adminbtn, .authbtn{
     /* border:1px solid !important; */
     background-color: #f55d3f !important;
 
@@ -167,10 +184,18 @@ body{
     cursor: pointer;
     transition: background 0.10s ease, transform 0.10s ease; 
 }
-.contactbtn:hover{
+.contactbtn:hover , .adminbtn:hover, .authbtn:hover{
     transform: scale(1.1); /* Scale the button by 110% on hover */
     /* background-color: #e12415 !important; */
     background: linear-gradient(to right, #FD1D1D, #F56040, #FF8E53);
+}
+.adminbtn{
+    width: 90%;
+}
+.authbtn{
+    border-radius: 50% !important;
+    height: 60px !important;
+    width: 60px !important;
 }
 .deviborder:before{
     content: '';
@@ -277,6 +302,18 @@ z-index: -1;
   .userlogo{
     font-size: 70px;
     top: 0px;
+    position: relative;
+    z-index: -1;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .notfound{
+    font-size: 55px;
+    top: 1px;
+    right: 5px;
     position: relative;
     z-index: -1;
     background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FF8E53);

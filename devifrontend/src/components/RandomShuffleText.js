@@ -8,8 +8,8 @@ function RandomShuffleText({ text,compstyle }) {
         shufflestyle = 'title-highlight logo';
     } else if (compstyle === 2) {
         shufflestyle = 'title-highlight userlogo';
-    } else {
-        shufflestyle = 'tag';
+    } else if (compstyle === 3) {
+        shufflestyle = 'title-highlight notfound';
     }
     
   useEffect(() => {
