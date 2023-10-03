@@ -2,6 +2,7 @@ import { faAdd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import FileUploadForm from './FileUploadForm';
 
 const Upload = () => {
   const intialstate ={
@@ -9,6 +10,7 @@ const Upload = () => {
     active: false,
   }
   const [categoryName, setCategoryName] = useState([intialstate]);
+  const [category, setCategory] = useState([]);
 
 
 const handleChange = (e) => {
@@ -76,7 +78,7 @@ useEffect(() => {
   fetch('http://localhost:5000/api/category') // Update with your API endpoint
     .then((response) => response.json())
     .then((data) => {
-      setCategoryName(data);
+      setCategory(data);
       console.log(data);
     })
     .catch((error) => {
@@ -107,30 +109,32 @@ useEffect(() => {
                 <button type="submit" className='btn btn-primary contactbtn'><FontAwesomeIcon icon={faAdd}/></button>
                 </label>
                 </form>
+                
+                <table class="table table-striped">
+                  
+                    <caption>Category List</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Catergory</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {category.map((category) => (
+                      <tr key={category._id}>
+                        <td>{category._id}</td>
+                        <td>{category.category}</td>
+                        <td>{category.active}</td>
+                        {/* Add more table cells for other category properties */}
+                      </tr>
+                    ))}
+                      
+                    </tbody>
+                  </table>
               </div>
               <div className='col-md-6'>
-              <table class="table table-striped">
-              
-                <caption>Category List</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Catergory</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                {categoryName.map((category) => (
-                  <tr key={category._id}>
-                    <td>{category._id}</td>
-                    <td>{category.category}</td>
-                    <td>{category.active}</td>
-                    {/* Add more table cells for other category properties */}
-                  </tr>
-                ))}
-                  
-                </tbody>
-              </table>
+                  <FileUploadForm category={category} />
               </div>
           </div>                 
         </div>

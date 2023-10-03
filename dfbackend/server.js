@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Contact = require('./models/Contact');
 const Category = require('./models/Category');
-
+const DataUpload = require('./models/DataUpload'); // Replace with your schema model
+const multer = require('multer');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -28,6 +30,49 @@ mongoose.connect('mongodb://127.0.0.1:27017/deviartfactory', {
 app.use(bodyParser.json());
 // Enable CORS for all routes
 // app.use(cors());
+
+
+
+// Define the storage destination for uploaded photos
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/'); // Change 'uploads/' to your desired folder path
+  },
+  filename: (req, file, cb) => {
+    // Rename the uploaded file if needed (e.g., to prevent filename collisions)
+    const fileName = `${Date.now()}-${file.originalname}`;
+    cb(null, fileName);
+  },
+});
+
+// Create a multer instance with the defined storage configuration
+const upload = multer({ storage });
+
+// Handle the POST request to upload a photo
+app.post('/api/upload-files', upload.array('files', 5),async (req, res) => {
+  try {
+    // Extract category name from the request body
+    const { category } = req.body;
+
+    // Save photo details to the MongoDB collection
+    const photoDetails = req.files.map((file) => {
+      return {
+        fileName: file.filename,
+        filePath: file.path,
+        categoryName: category,
+        // Add more fields as needed
+      };
+    });
+
+    // Insert photo details into the MongoDB collection
+    await DataUpload.insertMany(photoDetails);
+
+    res.status(200).json({ message: 'Photos uploaded successfully' });
+  } catch (error) {
+    console.error('Error uploading photos:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // Dummy user data (replace with your actual data source)
 const users = [
