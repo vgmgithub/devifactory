@@ -86,7 +86,8 @@ const HomePage = () => {
                     activeCategory={activeCategory}
                     onCategoryChange={handleCategoryChange}
                 />
-                <Portfolio projects={filteredProjects} />
+          <Portfolio projects={filteredProjects} />
+          
             </div>
             <hr/>
             <div id="services" className='contentsection'  >

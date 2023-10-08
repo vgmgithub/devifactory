@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Tab from 'react-bootstrap/Tab';
+import Nav from 'react-bootstrap/Nav';
+import TabContent from 'react-bootstrap/TabContent';
+import TabPane from 'react-bootstrap/TabPane';
+
+import ImageGallery from './ImageGallery'
+
 
 const FileUploadForm = (props) => {
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -27,32 +34,66 @@ const FileUploadForm = (props) => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
-      setMessage(response.data.message);
+        setMessage(response.data.message);
+        // setTimeout(() => {
+        //     window.location.reload();
+        //   }, 500);
+      
     } catch (error) {
       console.error('Error uploading files:', error);
       setMessage('File upload failed');
     }
   };
+  // const images = [
+  //   'image1.jpg',
+  //   'image2.jpg',
+  //   'image3.jpg',
+  //   // Add more image URLs as needed
+  // ];
 
   return (
     <div>
-      <h2>Multiple File Upload</h2>
+      <h2>Work Profile Upload</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <input type="file" multiple onChange={handleFileChange} />
+            <input type="file" className='form-control' multiple onChange={handleFileChange} />
+              <br></br>
               
-              
-            <select value={category} onChange={handleCategoryChange}>
+            <select value={category} className='form-control' onChange={handleCategoryChange}>
                   <option value="">Select Category</option>
                   {categorie.map((category) => (
-                        <option value={category.category}>{category.category}</option>
+                        <option value={category._id}>{category.category}</option>
                      
                     ))}
                 
                
             </select>
-        <button type="submit">Upload</button>
+        <button type="submit" className='btn btn-primary contactbtn' style={{marginTop:"5px"}}>Upload</button>
       </form>
-      {message && <p>{message}</p>}
+          {message && <p className='filestatus'>{message}</p>}
+          <hr></hr>
+          <Tab.Container id="my-tabbed-component" defaultActiveKey="tab1">
+              <Nav variant="tabs">
+                  
+              {categorie.map((category) => (
+                        
+                        <Nav.Item>
+                        <Nav.Link eventKey={category._id}>{category.category}</Nav.Link>
+                      </Nav.Item>
+                    ))}
+        
+      
+      </Nav>
+              <TabContent>
+                  {categorie.map((category) => (
+                      <TabPane eventKey={category._id}>
+                          {/* <p>Content for Tab {category.category} goes here.</p> */}
+                       
+                            <ImageGallery categoryId={category._id}/>
+                       
+                      </TabPane>
+                  ))}
+      </TabContent>
+    </Tab.Container> 
     </div>
   );
 };

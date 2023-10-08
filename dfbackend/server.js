@@ -9,7 +9,7 @@ const multer = require('multer');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
-
+const fs = require('fs'); // Import the fs module
 // Connect to MongoDB
 // mongoose.connect('mongodb://localhost/deviartfactory', {
 //   useNewUrlParser: true,
@@ -49,9 +49,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Handle the POST request to upload a photo
-app.post('/api/upload-files', upload.array('files', 5),async (req, res) => {
+app.post('/api/upload-files', upload.array('files', 10),async (req, res) => {
   try {
+    
     // Extract category name from the request body
+    console.log(req)
     const { category } = req.body;
 
     // Save photo details to the MongoDB collection
@@ -59,7 +61,7 @@ app.post('/api/upload-files', upload.array('files', 5),async (req, res) => {
       return {
         fileName: file.filename,
         filePath: file.path,
-        categoryName: category,
+        categoryid: category,
         // Add more fields as needed
       };
     });
@@ -73,6 +75,51 @@ app.post('/api/upload-files', upload.array('files', 5),async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+ 
+// Serve images from a specific directory
+
+app.get('/api/getImage/:imageName', (req, res) => {
+  const imageName = req.params.imageName;
+  const imagePath = `uploads/${imageName}`; // Relative to the root
+  // Check if the file exists
+  if (fs.existsSync(imagePath)) {
+    // If the image exists, send it as a response
+    res.sendFile(imagePath, { root: __dirname });
+  } else {
+    // If the image does not exist, send a default image
+    res.sendFile(`uploads/default.jpg`, { root: __dirname });
+  }
+  // res.sendFile(imagePath, { root: __dirname });
+});
+
+
+app.get('/api/images/:categoryId', async (req, res) => {
+  const categoryId = req.params.categoryId;
+
+  try {
+    const images = await DataUpload.find({ categoryid : categoryId }); // Query the database for images with the specified category ID
+    console.log('resss - '+images)
+    res.json(images);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+app.get('/api/images', async (req, res) => {
+
+
+  try {
+    const images = await DataUpload.find(); // Query the database for images with the specified category ID
+    console.log('resss - '+images)
+    res.json(images);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 
 // Dummy user data (replace with your actual data source)
 const users = [
