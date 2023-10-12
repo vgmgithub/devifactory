@@ -7,7 +7,7 @@ import axios from 'axios';
 const isAuthenticated = localStorage.getItem('authenticated');
 
 const Dashboard = () => {
-
+const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [contactcount, setCount1] = useState('loading');
   const [categorycount, setCount2] = useState('loading');
   const [datauploadcount, setCount3] = useState('loading');
@@ -15,39 +15,42 @@ const Dashboard = () => {
   
    // Define a function to fetch collection count
    const fetchCollectionCount = async (collectionName) => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/count/${collectionName}`);
+     try {
+      // console.log(`http://${BASE_URL}:5000/api/count/${collectionName}`)
+      const response = await axios.get(`http://${BASE_URL}:5000/api/count/${collectionName}`);
       return response.data.count;
     } catch (error) {
       console.error('Error fetching collection count:', error);
       return null;
     }
   };
+  // eslint-disable-next-line
   useEffect(() => {
     const collectionName1 = 'contacts'; // Change to your actual collection name
     fetchCollectionCount(collectionName1)
       .then((result) => {
         setCount1(result);
       });
-
+// eslint-disable-next-line
     const collectionName2 = 'categories'; // Change to your actual collection name
     fetchCollectionCount(collectionName2)
       .then((result) => {
         setCount2(result);
       });
-
+// eslint-disable-next-line
     const collectionName3 = 'datauploads'; // Change to your actual collection name
     fetchCollectionCount(collectionName3)
       .then((result) => {
         setCount3(result);
       });
-    
+    // eslint-disable-next-line
     
     const collectionName4 = 'happycus'; // Change to your actual collection name
     fetchCollectionCount(collectionName4)
       .then((result) => {
         setCount4(result);
       });
+    // eslint-disable-next-line
   }, []);
 
     return (

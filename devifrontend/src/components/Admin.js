@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 
 const Admin = () => {
-
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
  
     const intialstate ={
@@ -36,7 +36,7 @@ const Admin = () => {
 
 
 
-      fetch('http://localhost:5000/api/authenticate', {
+      fetch(`http://${BASE_URL}:5000/api/authenticate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

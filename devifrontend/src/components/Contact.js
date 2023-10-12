@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 
 const Contact = () => {
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
     
 
     const interest = ['Potrait', 'Illustration', 'Painting', 'Digital Potrait'];
@@ -48,7 +49,7 @@ const Contact = () => {
 
 
 
-      fetch('http://localhost:5000/api/contact', {
+      fetch(`http://${BASE_URL}:5000/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import FileUploadForm from './FileUploadForm';
 
 const Upload = () => {
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   const intialstate ={
     category: '',
     active: false,
@@ -32,7 +34,7 @@ const handleSubmit = (e) => {
 
 
 
-  fetch('http://localhost:5000/api/categories', {
+  fetch(`http://${BASE_URL}:5000/api/categories`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -73,9 +75,10 @@ const handleSubmit = (e) => {
   
  
   
-useEffect(() => {
+  useEffect(() => {
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
   // Fetch categories from your API
-  fetch('http://localhost:5000/api/category') // Update with your API endpoint
+  fetch(`http://${BASE_URL}:5000/api/category`) // Update with your API endpoint
     .then((response) => response.json())
     .then((data) => {
       setCategory(data);

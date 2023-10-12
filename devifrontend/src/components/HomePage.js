@@ -14,11 +14,12 @@ const HomePage = () => {
 
   useEffect(() => {
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
     
  
 
   // Fetch the data from the API and assign it to the portfolioData variable
-  fetch('http://localhost:5000/api/images') // Replace with your API URL
+  fetch(`http://${BASE_URL}:5000/api/images`) // Replace with your API URL
     .then(response => response.json())
     .then(data => {
       setportfolioData(data);

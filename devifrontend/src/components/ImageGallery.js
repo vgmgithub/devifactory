@@ -4,25 +4,28 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 function ImageGallery({ categoryId }) {
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   const [images, setImages] = useState([]);
   const getImageUrl = (filePath) => {
    
-    return `http://localhost:5000/api/getImage/${filePath}`;
+    return `http://${BASE_URL}:5000/api/getImage/${filePath}`;
 };
   useEffect(() => {
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     
     // Make a GET request to fetch images based on the category ID
-    axios.get(`http://localhost:5000/api/images/${categoryId}`)
+    axios.get(`http://${BASE_URL}:5000/api/images/${categoryId}`)
       .then((response) => {
         setImages(response.data);
-        console.log(images)
+        // console.log(images)
       })
       .catch((error) => {
         console.error(error);
       });
     
-    console.log(images);
+    // console.log(images);
   }, [categoryId]);
 
   return (

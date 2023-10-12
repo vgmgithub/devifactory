@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
 const Services = () => {
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     const [happycus, setCount4] = useState('loading');
     const fetchCollectionCount = async (collectionName) => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/count/${collectionName}`);
+          const response = await axios.get(`http://${BASE_URL}:5000/api/count/${collectionName}`);
           return response.data.count;
         } catch (error) {
           console.error('Error fetching collection count:', error);
@@ -21,6 +23,7 @@ const Services = () => {
       .then((result) => {
         setCount4(result);
       });
+        // eslint-disable-next-line
     }, []);
     
   return (

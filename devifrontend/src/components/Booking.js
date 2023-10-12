@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ContactTable from './ContactTable';
 import axios from 'axios'; 
 const Booking = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     const [contactData, setContactData] = useState([]);
     const toggleContact = async(contactId) => {
 
         try {
-            await axios.put(`http://localhost:5000/api/toggle-noted/${contactId}`)
+            await axios.put(`http://${BASE_URL}:5000/api/toggle-noted/${contactId}`)
                     window.location.reload()
                 
             // Update the state or re-fetch the contact list as needed

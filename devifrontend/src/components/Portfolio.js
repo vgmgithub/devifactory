@@ -1,7 +1,7 @@
-// src/components/Portfolio.js
-
 import React from 'react';
 const Portfolio = ({ projects }) => {
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   let messageToDisplay;
   if (!projects || Object.keys(projects).length === 0) {
     messageToDisplay = <h6 className='infotap'>Click any of the above category !</h6>;
@@ -13,7 +13,7 @@ const Portfolio = ({ projects }) => {
 console.log('prooooooooo ..'+projects)
   const getImageUrl = (filePath) => {
    
-      return `http://localhost:5000/api/getImage/${filePath}`;
+      return `http://${BASE_URL}:5000/api/getImage/${filePath}`;
   };
   return (
     <div className="row screenprofile">

@@ -9,6 +9,8 @@ import ImageGallery from './ImageGallery'
 
 
 const FileUploadForm = (props) => {
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
@@ -47,7 +49,7 @@ const FileUploadForm = (props) => {
 
     try {
       console.log(formData);
-      const response = await axios.post('http://localhost:5000/api/upload-files', formData, {
+      const response = await axios.post(`http://${BASE_URL}:5000/api/upload-files`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
