@@ -33,6 +33,7 @@ function ImageGallery({ categoryId }) {
       images.map((image) => (
         <div  key={image._id}>
           <img src={getImageUrl(image.fileName)} alt={image.categoryid} key={image._id} />
+          <span className='titleadmin'>Title: {image.title}</span>
           </div>
       ))}
         </Carousel>

@@ -1,24 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import RandomShuffleText from './RandomShuffleText'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 // const isLoggedIn = localStorage.getItem('user');
-let isLocalStorageEmpty;
-if (localStorage.getItem('user') !== null) {
-    // Item exists in localStorage
-    // You can access it using localStorage.getItem('itemName')
-    const newUser = localStorage.getItem('user');
-    console.log('Item exists:', newUser);
-    isLocalStorageEmpty = true;
-  } else {
-    // Item does not exist in localStorage
-    console.log('Item does not exist');
-    isLocalStorageEmpty = false;
 
-  }
-// const isLocalStorageEmpty = localStorage.getItem('user').length === 0;
-// const newUser = localStorage.getItem('user');
+const isAuthenticated = localStorage.getItem('authenticated');
 
 const Dashboard = () => {
+
+  const [contactcount, setCount1] = useState('loading');
+  const [categorycount, setCount2] = useState('loading');
+  const [datauploadcount, setCount3] = useState('loading');
+  const [happycus, setCount4] = useState('loading');
+  
+   // Define a function to fetch collection count
+   const fetchCollectionCount = async (collectionName) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/count/${collectionName}`);
+      return response.data.count;
+    } catch (error) {
+      console.error('Error fetching collection count:', error);
+      return null;
+    }
+  };
+  useEffect(() => {
+    const collectionName1 = 'contacts'; // Change to your actual collection name
+    fetchCollectionCount(collectionName1)
+      .then((result) => {
+        setCount1(result);
+      });
+
+    const collectionName2 = 'categories'; // Change to your actual collection name
+    fetchCollectionCount(collectionName2)
+      .then((result) => {
+        setCount2(result);
+      });
+
+    const collectionName3 = 'datauploads'; // Change to your actual collection name
+    fetchCollectionCount(collectionName3)
+      .then((result) => {
+        setCount3(result);
+      });
+    
+    
+    const collectionName4 = 'happycus'; // Change to your actual collection name
+    fetchCollectionCount(collectionName4)
+      .then((result) => {
+        setCount4(result);
+      });
+  }, []);
+
     return (
       <div className='body'>
         
@@ -28,37 +59,35 @@ const Dashboard = () => {
             <div className="center-text">
               
               <h1 className='admintitle'>
-                  {isLocalStorageEmpty ? (
-                      // Render content for authenticated users
+            
+                {!isAuthenticated ? (<Link to="/admin"></Link> ):(<></>)}
+                   
                       <>
                       <span className='title-highlight'>Welcome Back</span> <RandomShuffleText text={'Saranya'} compstyle={2} /><span className='title-highlight'>, </span>
                       </>
-                    ) : (
-                    <Link to="/admin"></Link>
-                      
-                      
-                  )}  
+                   
                 
             </h1>
               <p className='admintag'> -------------------Devi Art Factory------------------- </p>
               <div className='row'>
           <div className='col-md-3'>
-            <RandomShuffleText text={'25'} compstyle={3} />
+            <RandomShuffleText text={happycus.toString()} compstyle={3} />
             <p className='title-highlight'>Happy Customers</p>
           </div>
           <div className='col-md-3'>
-              <RandomShuffleText text={'5'} compstyle={3} />
+              <RandomShuffleText text={contactcount.toString()} compstyle={3} />
               <p className='title-highlight'>Booking Enquiry</p>
           </div>
           <div className='col-md-3'>
-              <RandomShuffleText text={'4'} compstyle={3} />
+              <RandomShuffleText text={categorycount.toString()} compstyle={3} />
               <p className='title-highlight'>Art Category</p>
           </div>
           <div className='col-md-3'>
-              <RandomShuffleText text={'26'} compstyle={3} />
+              <RandomShuffleText text={datauploadcount.toString()} compstyle={3} />
               <p className='title-highlight'>Art Uploads</p>
           </div>
-           
+             
+                
             </div>
             </div>
             

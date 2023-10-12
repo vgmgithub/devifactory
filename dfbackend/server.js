@@ -55,12 +55,16 @@ app.post('/api/upload-files', upload.array('files', 10),async (req, res) => {
     // Extract category name from the request body
     console.log(req)
     const { category } = req.body;
+    const { title } = req.body;
+    const { client } = req.body;
 
     // Save photo details to the MongoDB collection
     const photoDetails = req.files.map((file) => {
       return {
         fileName: file.filename,
         filePath: file.path,
+        title: title,
+        client: client,
         categoryid: category,
         // Add more fields as needed
       };
@@ -111,8 +115,31 @@ app.get('/api/images', async (req, res) => {
 
 
   try {
-    const images = await DataUpload.find(); // Query the database for images with the specified category ID
-    console.log('resss - '+images)
+    const images = await DataUpload.aggregate([
+      {
+        $lookup: {
+          from: 'categories', // Name of the "category" collection
+          localField: 'categoryid', // Field to join in "imageupload" collection
+          foreignField: '_id', // Field to join in "category" collection
+          as: 'category',
+        },
+        
+      },
+      
+      {
+        $unwind: '$category',
+      },
+      {
+        $project: {
+          _id: 1, // Exclude the _id field
+          category: '$category.category', // Include only the category field
+          title: 1,
+          filePath: 1,
+          fileName: 1
+        },
+      },
+    ]);// Query the database for images with the specified category ID
+    console.log('resss - '+images[0])
     res.json(images);
   } catch (error) {
     console.error(error);
@@ -237,6 +264,40 @@ app.post('/api/contact', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while processing your request' });
   }
 });
+
+
+
+// Counts
+
+
+app.get('/api/count/:collectionName', async (req, res) => {
+  const collectionName = req.params.collectionName; // Get the category name from the URL parameter
+
+  try {
+    const collectionName = req.params.collectionName; 
+    if (collectionName  != 'happycus') {
+        if (!mongoose.connection.collections[collectionName]) {
+          return res.status(404).json({ error: 'Collection not found' });
+        }
+    }
+    let collectionCount='';
+    // const CollectionModel = mongoose.model(collectionName, new mongoose.Schema({})); // Create a dynamic model
+    if (collectionName == 'contacts') {
+      collectionCount = await Contact.countDocuments({});      
+    } else if(collectionName == 'categories') {
+       collectionCount = await Category.countDocuments({}); 
+    } else if (collectionName == 'datauploads') {
+      collectionCount = await DataUpload.countDocuments({}); 
+    } else if (collectionName == 'happycus') {
+      collectionCount = await DataUpload.countDocuments({client:1}); 
+    }
+    res.json({ count: collectionCount });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching category count.');
+  }
+});
+
 
 
 app.listen(port, () => {

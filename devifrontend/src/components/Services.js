@@ -1,6 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
 const Services = () => {
+    const [happycus, setCount4] = useState('loading');
+    const fetchCollectionCount = async (collectionName) => {
+        try {
+          const response = await axios.get(`http://localhost:5000/api/count/${collectionName}`);
+          return response.data.count;
+        } catch (error) {
+          console.error('Error fetching collection count:', error);
+          return null;
+        }
+      };
+    
+    
+    useEffect(() => {
+         
+    const collectionName = 'happycus'; // Change to your actual collection name
+    fetchCollectionCount(collectionName)
+      .then((result) => {
+        setCount4(result);
+      });
+    }, []);
+    
   return (
       <>
           <h2 className='deviborder'>I Can Do</h2><br /><br /><br />
@@ -42,7 +64,7 @@ const Services = () => {
               <div className='col-md-2'>
                   
                   <img src='images/easel-png.png' className='easel' alt='easel' />
-                  <span className="incline-text"><span className="customercount"  >25</span>&nbsp;Happy Customer's</span>
+                  <span className="incline-text"><span className="customercount"  >{happycus}</span>&nbsp;Happy Customer's</span>
             </div>
                  
         </div>

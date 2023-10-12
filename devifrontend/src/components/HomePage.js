@@ -1,22 +1,41 @@
 // src/components/HomePage.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Home from './Home';
 import About from './About';
 import Services from './Services';
 import Portfolio from './Portfolio';
 import CategoryTabs from './CategoryTabs';
-import portfolioData from './PortfolioData';
+// import portfolioData from './PortfolioData';
 import Contact from './Contact';
 
 const HomePage = () => {
 
-    const categories = [...new Set(portfolioData.map((project) => project.category))];
+  const [portfolioData, setportfolioData] = useState([]);
 
+  useEffect(() => {
+
+    
+ 
+
+  // Fetch the data from the API and assign it to the portfolioData variable
+  fetch('http://localhost:5000/api/images') // Replace with your API URL
+    .then(response => response.json())
+    .then(data => {
+      setportfolioData(data);
+        
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }, []);
+  // console.log(portfolioData)
+    const categories = [...new Set(portfolioData.map((project) => project.category))];
+    // const categories  = new Set(portfolioData.map(item => item.category));
     const [activeCategory, setActiveCategory] = useState(categories[0]);
     const filteredProjects = portfolioData.filter(
         (project) => project.category === activeCategory
     );
-
+  console.log('filter------------' + portfolioData);
     const handleCategoryChange = (category) => {
         setActiveCategory(category);
     };
@@ -26,6 +45,7 @@ const HomePage = () => {
   const [activeLink, setActiveLink] = useState(null);
 
   const handleClick = (sectionId) => {
+    
     // Display an alert when a link is clicked
     //   alert(`You clicked on ${sectionId}`);
       setActiveLink(sectionId);
@@ -33,19 +53,26 @@ const HomePage = () => {
     console.log('stored anme  '+storedUserName); // Outputs 'John Doe'
   };
 
-    
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const menuClasses = `navbar-collapse ${isMenuOpen ? 'show' : ''}`;
+
   return (
     <div>
       <nav id="navbar-example" className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-                  <a className="navbar-brand titleicon" href="#home" onClick={() => handleClick('')}><span className='title-highlight-icon'>DEVI</span> ART <span className='title-highlight-icon'>FACTORY</span></a>
+                  <a  className="navbar-brand titleicon" href="#home" onClick={() => handleClick('')}><span className='title-highlight-icon'>DEVI</span> ART <span className='title-highlight-icon'>FACTORY</span></a>
                 
              
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button  className={`navbar-toggler ${isMenuOpen ? 'active' : ''}`} type="button" onClick={toggleMenu}>
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+          <div className={menuClasses} id="navbarNav">
+            <ul  className="navbar-nav">
               {/* <li className="nav-item">
                 <a className="nav-link" href="#home">Home</a>
               </li> */}
@@ -67,8 +94,8 @@ const HomePage = () => {
       </nav>
 
         <div data-bs-spy="scroll" data-bs-target="#navbar-example" data-bs-offset="0" className="scrollspy-example">
-          <div id="home"  >
-                <Home/>
+          <div id="home" >
+                <Home />
                   
             </div>
             <div id="about" className='contentsection'>
@@ -86,7 +113,7 @@ const HomePage = () => {
                     activeCategory={activeCategory}
                     onCategoryChange={handleCategoryChange}
                 />
-          <Portfolio projects={filteredProjects} />
+                <Portfolio projects={filteredProjects} />
           
             </div>
             <hr/>

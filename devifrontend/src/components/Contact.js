@@ -70,13 +70,13 @@ const Contact = () => {
           }).then(() => {
             setTimeout(() => {
                 // Scroll to the top of the page
-                window.scrollTo({ top: -200, behavior: 'smooth' });
+                window.scrollTo({ top: -250, behavior: 'smooth' });
                 
                 // Reload the page after a short delay (e.g., 500 milliseconds)
                 setTimeout(() => {
                   window.location.reload();
-                }, 500);
-              }, 1000);
+                }, 600);
+              }, 500);
            
           });
             

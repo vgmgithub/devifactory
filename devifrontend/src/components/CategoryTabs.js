@@ -2,6 +2,10 @@
 import React from 'react';
 
 const CategoryTabs = ({ categories, activeCategory, onCategoryChange }) => {
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   return (
     <>
       <h2  className='deviborder'>My Works</h2><br /><br /><br />
@@ -12,7 +16,7 @@ const CategoryTabs = ({ categories, activeCategory, onCategoryChange }) => {
             className={`nav-link catlink ${category === activeCategory ? 'active' : ''}`}
             onClick={() => onCategoryChange(category)}
           >
-            {category}
+            {capitalizeFirstLetter(category)}
           </button>
         </li>
       ))}

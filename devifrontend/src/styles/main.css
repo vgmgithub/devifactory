@@ -1,7 +1,14 @@
 body{
     background-color: #e7fcff;
 }
+.titleadmin{
+    color: white;
+    position: relative;
+    bottom: 36px;
+    font-size: larger;
+    text-shadow: 1px 1px 5px #000;
 
+}
 .title{
     color:#fff !important;
     text-shadow: 1px 2px 6px #000000b5;
@@ -59,7 +66,26 @@ body{
 .nav-link{
     font-weight: 600 !important;
 }
-
+@keyframes moveUpAndDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Adjust the value to control the amount of movement */
+    }
+  }
+.infotap{
+    animation: moveUpAndDown 2s infinite;
+    position: absolute;
+    margin-top: 25px !important;
+    margin-left: 25px;
+    background: #0d73fd;
+    width: 280px !important;
+    text-align: center;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 50px;
+}
 .logo{
     font-size: 90px;
     position: relative;
@@ -323,8 +349,94 @@ z-index: -1;
   }
 
   .filestatus{
-    background-color: greenyellow;
+    background-color: #fc7f66;
     padding: 5px 10px;
     border-radius: 20px;
-    margin-top: 5px;
+    font-weight: 700;
+    width: 500px;
+    position: absolute;
+    margin: -35px 120px;
+    text-align: center;
+    color: #fff;
+  }
+
+
+
+  @media only screen and (max-width: 400px) {
+    /* Your CSS styles for iPhone here */
+
+
+    .navbar-collapse.show{
+        display: block !important;
+        position: absolute !important;
+        top: 70px;
+        right: 15px !important;
+   }
+   .navbar-collapse{
+    display: none;
+    }
+.nav-item{
+    background: #f8f9fa;
+    padding: 1px 15px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    margin: 10px 0px;
+    box-shadow: 3px 2px 10px #00000063;
+}
+.titleicon {
+    left: 90px;
+}
+    .tag{
+        top:20px !important;
+        right: 0px !important;
+    }
+
+    .logo {
+        font-size: 60px;
+    }
+
+    .screenprofile{
+        width: 145%;
+        margin-left: -60px !important;
+    }
+    .easel {
+        width: 200px;
+        position: absolute;
+        top: 3411px;
+        right: 0px;
+    }
+
+    .incline-text {
+        position: absolute;
+        top: 3475px;
+        right: 22px;
+        font-size: 9px;
+        line-height: 1.2;
+        background-image: linear-gradient(to bottom, #FFA07A, #FF6347);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        width: 80px;
+        font-weight: 700;
+        text-align: center;
+
+    }
+    .customercount {
+        font-size: 20px;
+    }
+    .contact-form {
+        width: 100%;
+    }
+    .infotap{
+        margin-left: 56px;
+    }
+    .service{
+        /* margin-left: -29px;
+        width: 95%;
+        position: absolute; */
+    }
+    .userlogo {
+        font-size: 45px;
+    }
   }

@@ -35,6 +35,14 @@ const AdminHome = () => {
         // console.log('stored anme  '+storedUserName); // Outputs 'John Doe'
     };
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+      setIsMenuOpen(!isMenuOpen);
+    };
+  
+    const menuClasses = `navbar-collapse ${isMenuOpen ? 'show' : ''}`;
+
     if (!isAuthenticated) {
         return <NotAuthorized/>
     } else {
@@ -48,10 +56,10 @@ const AdminHome = () => {
                         <a className="navbar-brand titleicon" href="#home" onClick={() => handleClick('')}><span className='title-highlight-icon'>DEVI</span> ART <span className='title-highlight-icon'>FACTORY</span></a>
                 
              
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <button className={`navbar-toggler ${isMenuOpen ? 'active' : ''}`} type="button" onClick={toggleMenu}>
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
+                        <div className={menuClasses} id="navbarNav">
                             <ul className="navbar-nav">
                                 {/* <li className="nav-item">
                 <a className="nav-link" href="#home">Home</a>

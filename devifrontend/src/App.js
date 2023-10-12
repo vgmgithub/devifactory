@@ -6,6 +6,7 @@ import HomePage from './components/HomePage';
 import Page404 from './components/Page404';
 import Admin from './components/Admin';
 import AdminHome from './components/AdminHome';
+// import portfolioData from './components/PortfolioData';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<HomePage/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/home" element={<AdminHome/>} />
+          {/* <Route path="/port" element={<portfolioData/>} /> */}
               <Route path="*" element={<Page404/>} />
            
           </Routes>

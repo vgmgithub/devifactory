@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const dataUploadSchema = new mongoose.Schema({
   fileName: String,
   filePath: String,
-  categoryid: String,
+  title: String,
+  client: Number,
+  categoryid: mongoose.Schema.Types.ObjectId,
   // Add more fields as needed
 });
 
