@@ -28,7 +28,7 @@ const FileUploadForm = (props) => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     setTitleData(value);
     // console.log('name---------'+value)
 };
