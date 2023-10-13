@@ -16,7 +16,7 @@ const About = () => {
                     <div className='col-md-6'>
                         <img className='img-responsive rounded-circle ownerprof' src='/images/devica.jpeg' alt='devi' />
                         <p className='scantext ownerlabel' >ARTIST</p>
-                        <h6 className='scantext'>SARANYA DEVI KUTTALAM CA</h6>
+                        <h6 className='scantext'>CA SARANYA DEVI KUTTALAM</h6>
                     </div>
                     <div className='col-md-6'>
                         <div className='scandiv'>

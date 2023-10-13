@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <p>&copy; {new Date().getFullYear()} Devi Art Factory. All rights reserved.</p>
+            <p> &copy; {new Date().getFullYear()} Devi Art Factory. All rights reserved. Designed by VGM.</p>
           </div>
           <div className="col-md-6">
             <div className="social-icons">

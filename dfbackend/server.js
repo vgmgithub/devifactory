@@ -10,11 +10,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs'); // Import the fs module
-// Connect to MongoDB
-// mongoose.connect('mongodb://localhost/deviartfactory', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
+
 
 app.use(cors({
   origin: 'http://localhost:3000', // Replace with your React.js app's URL
@@ -28,9 +24,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/deviartfactory', {
 
 
 app.use(bodyParser.json());
-// Enable CORS for all routes
-// app.use(cors());
-
 
 
 // Define the storage destination for uploaded photos

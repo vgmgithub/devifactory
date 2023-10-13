@@ -15,19 +15,12 @@ const Booking = () => {
           } catch (error) {
             console.error('Error toggling noted field:', error);
           }
-        // Find the contact in the data by ID and toggle its status
-        // const updatedContacts = contactData.map((contact) =>
-        //   contact.id === contactId
-        //     ? { ...contact, active: !contact.active }
-        //     : contact
-        // );
-          
-        // setContactData(updatedContacts); // Update the contact data
-        // console.log(contactData)
+         
       };
   useEffect(() => {
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
     // Fetch contact data from your backend API
-    fetch('http://localhost:5000/api/contacts') // Replace with your actual API endpoint
+    fetch(`http://${BASE_URL}:5000/api/contacts`) // Replace with your actual API endpoint
       .then((response) => response.json())
       .then((data) => {
         setContactData(data); // Assuming the data is an array of contacts
