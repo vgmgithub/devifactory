@@ -71,8 +71,8 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
   // ];
 
   return (
-    <div>
-      <h2>Work Profile Upload</h2>
+    <div className='workprofile'>
+      <h2 className='deviborder'>Work Profile Upload</h2><br></br><br></br>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
             <input type="file" className='form-control' multiple onChange={handleFileChange} />
               <br></br>

@@ -360,7 +360,7 @@ z-index: -1;
     color: #fff;
   }
 
-
+    
 
   @media only screen and (max-width: 500px) {
     /* Your CSS styles for iPhone here */
@@ -438,5 +438,30 @@ z-index: -1;
     }
     .userlogo {
         font-size: 45px;
+    }
+    .admintitle {
+        position: absolute;
+        top: 100px;
+        left: 28px;
+    }
+    .tablecss{
+        overflow: auto;
+    }
+    /* .adminnav{
+        z-index: 1;
+        position: absolute;
+        right: 0px;
+    } */
+    .nav-item{
+        text-align: -webkit-center;
+    }
+    .contactbtn{
+    z-index: 0 !important;
+        
+    }
+
+    .workprofile{
+        margin-top: 150px;
+        margin-left: -15px;
     }
   }

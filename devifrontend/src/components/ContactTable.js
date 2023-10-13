@@ -112,7 +112,7 @@ function formatTimeAgo(timestamp) {
     const { globalFilter, pageIndex } = state;
 
   return (
-    <div>
+    <div className='tablecss'>
          
         <input
           type="text"

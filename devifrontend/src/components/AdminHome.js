@@ -60,7 +60,7 @@ const AdminHome = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className={menuClasses} id="navbarNav">
-                            <ul className="navbar-nav">
+                            <ul className="navbar-nav adminnav">
                                 {/* <li className="nav-item">
                 <a className="nav-link" href="#home">Home</a>
               </li> */}
